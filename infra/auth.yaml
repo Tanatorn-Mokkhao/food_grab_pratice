@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth_service-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth_service
+  template:
+    metadata:
+      labels:
+        app: auth_service
+    spec:
+      containers:
+        - name: auth_service
+          image: predatormart/auth_service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth_service-srv
+spec:
+  selector:
+    app: auth_service
+  ports:
+    - name: auth_service
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
