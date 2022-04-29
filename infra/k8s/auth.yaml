@@ -15,6 +15,9 @@ spec:
       containers:
         - name: auth
           image: predatormart/auth_service
+          env:
+            - name: MONGO_URL
+              value: "mongodb+srv://mart:mart12299@cluster0.oz7j2.mongodb.net/auth_service?retryWrites=true&w=majority"
 ---
 apiVersion: v1
 kind: Service
