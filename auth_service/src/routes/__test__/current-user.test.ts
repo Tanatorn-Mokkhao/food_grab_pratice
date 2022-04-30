@@ -17,7 +17,7 @@ it('resonse with null if not auth', async () => {
     const response = await request(app)
         .get('/api/users/currentUser')
         .send()
-        .expect(400)
+        .expect(401)
     
     expect(response.body.currentUser).toEqual(null)
 })
