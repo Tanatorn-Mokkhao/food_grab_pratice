@@ -18,6 +18,11 @@ spec:
           env:
             - name: MONGO_URL
               value: "mongodb+srv://mart:mart12299@cluster0.oz7j2.mongodb.net/auth_service?retryWrites=true&w=majority"
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
