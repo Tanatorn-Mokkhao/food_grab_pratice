@@ -6,7 +6,11 @@ on:
       - master
     paths:
       - "infra/**"
-
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "infra/**"
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
