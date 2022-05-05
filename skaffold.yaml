@@ -18,6 +18,14 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
+    - image: predatormart/product_service
+      context: product_service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
     - image: predatormart/client_service
       context: client
       docker:
