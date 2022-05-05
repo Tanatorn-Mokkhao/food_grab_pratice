@@ -6,4 +6,11 @@ function index() {
   )
 }
 
+index.getInitialProps = async (context) => { 
+    console.log('hello world 2', context)
+  
+    return 'test'
+  }
+  
+
 export default index

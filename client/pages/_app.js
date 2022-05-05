@@ -7,13 +7,25 @@ if (typeof window !== "undefined") {
   window.store = store;
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp ({ Component, pageProps }){
   return (
     <Provider store={store}>
       <Component {...pageProps} />
     </Provider>
   )
 }
+
+MyApp.getInitialProps = async (appContext) => { 
+  console.log('hello world')
+  let pageProps = {};
+
+  if (appContext.Component.getInitialProps) { 
+    pageProps = await appContext.Component.getInitialProps(appContext.ctx);
+  }
+
+  return pageProps
+}
+
 
 
 
