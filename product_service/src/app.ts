@@ -1,6 +1,7 @@
 import express from 'express'
 import 'express-async-errors'
-import {ErrorHandle, NotfoundError } from '@martfoodgrab/common'
+import { ErrorHandle, NotfoundError } from '@martfoodgrab/common'
+import { productRoutes } from './routes/product.route'
 import cookieSession from 'cookie-session'
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(
     })
 )
 
+app.use('/api/products', productRoutes)
 
 app.all('*', () => { 
     throw new NotfoundError()

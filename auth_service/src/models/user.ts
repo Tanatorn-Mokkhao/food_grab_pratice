@@ -2,17 +2,17 @@ import mongoose from 'mongoose'
 import { Password } from '../services/password'
 
 export interface UserAttrs { 
-    email: string,
-    password: string,
+    email: string
+    password: string
     name: string
 }
 
 
 interface UserDoc extends mongoose.Document { 
-    email: string,
-    password: string,
-    name: string,
-    createdAt: Date,
+    email: string
+    password: string
+    name: string
+    createdAt: Date
     updateAt: Date
 }
 
