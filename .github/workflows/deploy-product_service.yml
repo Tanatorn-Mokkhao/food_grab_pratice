@@ -1,11 +1,11 @@
-name: deploy-auth_service
+name: deploy-product_service
 
 on:
   push:
     branches:
       - master
     paths:
-      - "auth_service/**"
+      - "product_service/**"
 
 jobs:
   build:
@@ -16,8 +16,8 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: cd auth_service && docker build -t predatormart/auth_service .
-      - run: docker push predatormart/auth_service
+      - run: cd product_service && docker build -t predatormart/product_service .
+      - run: docker push predatormart/product_service
 
       - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
         with:
@@ -32,4 +32,4 @@ jobs:
           cluster_name: ${{ secrets.GKE_CLUSTER }}
           location: ${{ secrets.GKE_ZONE }}
           credentials: ${{ secrets.GKE_SA_KEY }}
-      - run: kubectl rollout restart deployment auth-depl
+      - run: kubectl rollout restart deployment product-depl
