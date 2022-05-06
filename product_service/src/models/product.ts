@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-interface ProductAttrs { 
+export interface ProductAttrs { 
     name: string
     price: number
     quantity: number
@@ -15,7 +15,7 @@ interface ProductDoc extends mongoose.Document {
 }
 
 interface ProductModel extends mongoose.Model<ProductDoc> { 
-    build(attrs: ProductAttrs): ProductAttrs
+    build(attrs: ProductAttrs): ProductDoc
 }
 
 const ProductSchema = new mongoose.Schema({

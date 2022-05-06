@@ -3,7 +3,7 @@ import { body } from 'express-validator'
 export const validateSignin = [
     body('email')
         .isEmail()
-        .withMessage('Email must bew valid'),
+        .withMessage('Email must be valid'),
     body('password')
         .trim()
         .notEmpty()
