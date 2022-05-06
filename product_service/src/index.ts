@@ -1,5 +1,6 @@
 import { app } from './app'
 import mongoose from 'mongoose'
+import { kafkaWrapper } from './kafka-wrapper'
 
 
 const start = async () => { 
@@ -13,6 +14,8 @@ const start = async () => {
     }
 
     try {
+        await kafkaWrapper.connect('test', ['kafka1-service:9092'])
+
         await mongoose.connect(process.env.MONGO_URL)
         console.log('connected to mongodb')
     } catch (err) { 
