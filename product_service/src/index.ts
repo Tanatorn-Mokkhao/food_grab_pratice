@@ -24,7 +24,7 @@ const start = async () => {
 
 
     app.listen(3000, () => { 
-        console.log('server is running on port 3000!!!!_product.v2_1')
+        console.log('server is running on port 3000!!!!_product.new-zone-test')
     })
 }
 
